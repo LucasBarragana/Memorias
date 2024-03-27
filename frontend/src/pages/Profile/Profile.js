@@ -45,6 +45,7 @@ const Profile = () => {
 
   const [previewImage, setPreviewImage] = useState(null);
 
+  const [isEditing, setIsEditing] = useState(false);
   
   // New form and edit form refs
   const newPhotoForm = useRef();
@@ -114,10 +115,7 @@ const Profile = () => {
 
   // Show edit form
   const handleEdit = (photo) => {
-    if (editPhotoForm.current.classList.contains("hide")) {
-      hideOrShowForms();
-    }
-
+    setIsEditing(true);
     setEditId(photo._id);
     setEditImage(photo.image);
     setEditTitle(photo.title);
@@ -191,23 +189,31 @@ const Profile = () => {
         </div>
           
           
-          <div className="edit-photo hide" ref={editPhotoForm}>
-            <p>Editando:</p>
-            {editImage && (
-              <img src={`${uploads}/photos/${editImage}`} alt={editTitle} />
-            )}
-            <form onSubmit={handleUpdate}>
-              <input
-                type="text"
-                onChange={(e) => setEditTitle(e.target.value)}
-                value={editTitle || ""}
-              />
-              <input type="submit" value="Atualizar" />
-              <button className="cancel-btn" onClick={handleCancelEdit}>
-                Cancelar edição
-              </button>
-            </form>
+        {isEditing && (
+          <div className="edit-photo" ref={editPhotoForm}>
+            <div className="editing">
+              <p>Editando:</p>
+              {editImage && (
+                <img src={`${uploads}/photos/${editImage}`} alt={editTitle} />
+              )}
+            </div>
+
+            <div className="buttons">
+              <form onSubmit={handleUpdate}>
+                <p>Descrição da imagem</p>
+                <input
+                  type="text"
+                  onChange={(e) => setEditTitle(e.target.value)}
+                  value={editTitle || ""}
+                />
+                <input type="submit" value="Atualizar" />
+                <button className="cancel-btn" onClick={handleCancelEdit}>
+                  Cancelar edição
+                </button>
+              </form>
+            </div>
           </div>
+        )}
           {errorPhoto && <Message msg={errorPhoto} type="error" />}
           {messagePhoto && <Message msg={messagePhoto} type="success" />}
         </>

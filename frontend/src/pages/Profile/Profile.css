@@ -24,7 +24,7 @@
 }
 
 .new-post span{
-  color: white;
+  color: #363636;
 }
 
 .new-photo {
@@ -56,8 +56,8 @@
 }
 
 .photo img {
-  width: 100%;
-  height: 85%;
+  width: 80%;
+  height: auto;
   object-fit: cover;
 }
 
@@ -72,13 +72,20 @@
   cursor: pointer;
 }
 
+
 .edit-photo {
-  margin-bottom: 1em;
+  display: flex;
+  align-items:end;
+  justify-content: start;
+  margin: 1em;
 }
 
-.edit-photo img {
-  width: 100%;
+.edit-photo img {  
+  width: 90%;
   height: auto; 
-  margin-bottom: 1em;
 }
 
+.editing{
+  max-width: 300px;
+  height: auto;
+}

@@ -23,6 +23,7 @@
 
 .forms{
   display: flex;
+  
   margin-right: 20em;
 }
 
@@ -44,8 +45,8 @@
 
 #search-form input {
   padding-left: 2.5em;
-  border: none;
   border-radius: 5px;
+  border: 1px solid #363636;
   width: 100%;
   margin: 0;
 }
