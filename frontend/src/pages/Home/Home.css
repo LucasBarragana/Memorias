@@ -1,0 +1,39 @@
+#home {
+  width: 80%; 
+  margin: 0 auto;
+  padding-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#home .btn {
+  display: block;
+  max-width: 80px;
+  text-align: center;
+}
+
+.background {
+  background-color: #eeeeee;
+  box-shadow: 0 0 50px #eacda3;
+  padding: 10px 20px;
+  margin: 20px;
+  flex: 0 0 calc(30% - 40px);
+  box-sizing: border-box;
+  height: 530px;
+  overflow: hidden;
+}
+
+.sub-itens{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.no-photos {
+  text-align: center;
+}
+
+.no-photos a {
+  color: #0094f6;
+}
